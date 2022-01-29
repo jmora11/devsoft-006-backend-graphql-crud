@@ -14,5 +14,7 @@ export const connectDB = async () => {
         ],
         synchronize: false,
         ssl: false
-    });
+    }).then(connection => {
+       console.log('DB conected successfully');
+    }).catch(error => console.log(error));
 };
