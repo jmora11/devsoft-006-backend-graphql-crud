@@ -7,7 +7,12 @@
     "dev": "ts-node-dev src/index.ts",
     "build": "tsc -p ."
   },
-  "keywords": [],
+  "keywords": [
+    "nodejs",
+    "typescript",
+    "express",
+    "graphql"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
