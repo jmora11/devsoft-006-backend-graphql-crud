@@ -1,6 +1,6 @@
 import debugLib from 'debug';
 import { createConnection } from 'typeorm';
-import config from './config';
+import * as config from './config';
 import { Users } from './Entities/Users';
 
 const debug = debugLib('dev:db');
@@ -8,11 +8,11 @@ const debug = debugLib('dev:db');
 export const connectDB = async () => {
     await createConnection({
         type: 'mysql',
-        username: config.dbusername,
-        password: config.dbpassword,
-        port: +config.dbport,
-        host: config.dbhost,
-        database: config.dbdatabase,
+        username: config.DB_USERNAME,
+        password: config.DB_PASSWORD,
+        port: Number(config.DB_PORT),
+        host: config.DB_HOST,
+        database: config.DB_DATABASE,
         entities: [
             Users
         ],

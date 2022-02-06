@@ -1,4 +1,4 @@
-Específicación de Querys 
+Especificación de Querys 
 _________________________________
 
 Crear usuario:
