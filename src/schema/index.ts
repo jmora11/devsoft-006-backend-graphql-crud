@@ -1,18 +1,23 @@
 import { GraphQLSchema, GraphQLObjectType } from 'graphql';
-import { createUser } from './mutations/User';
+import { createUser, deleteUser, updateUser } from './mutations/User';
 import { greeting } from './querys/Greeting';
+import { getAllUsers, getUser } from './querys/User';
 
 const rootQuery = new GraphQLObjectType({
     name: 'RootQuery',
     fields: {
-        greeting: greeting
+        greeting: greeting,
+        getAllUsers: getAllUsers,
+        getOneUser: getUser
     }
 });
 
 const mutation = new GraphQLObjectType({
     name: 'Mutation',
     fields: {
-        createUser: createUser
+        createUser: createUser,
+        updateUser: updateUser,
+        deleteUser: deleteUser
     }
 });
 

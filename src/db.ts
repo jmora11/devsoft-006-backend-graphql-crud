@@ -1,20 +1,24 @@
+import debugLib from 'debug';
 import { createConnection } from 'typeorm';
+import config from './config';
 import { Users } from './Entities/Users';
+
+const debug = debugLib('dev:db');
 
 export const connectDB = async () => {
     await createConnection({
         type: 'mysql',
-        username: 'root',
-        password: '1234',
-        port: 3306,
-        host: 'localhost',
-        database: 'usersdb',
+        username: config.dbusername,
+        password: config.dbpassword,
+        port: +config.dbport,
+        host: config.dbhost,
+        database: config.dbdatabase,
         entities: [
             Users
         ],
         synchronize: false,
         ssl: false
-    }).then(connection => {
-       console.log('DB conected successfully');
-    }).catch(error => console.log(error));
+    }).then(_connection => {
+       debug('DB conected successfully');
+    }).catch(error => debug(error));
 };
